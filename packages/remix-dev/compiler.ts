@@ -353,6 +353,7 @@ async function createBrowserBuild(
     emptyModulesPlugin(config, /\.server(\.[jt]sx?)?$/),
     NodeModulesPolyfillPlugin(),
     yarnPnpPlugin(),
+    ... config.esbuildPlugins ? config.esbuildPlugins : []
   ];
 
   return esbuild.build({
